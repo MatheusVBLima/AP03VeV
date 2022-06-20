@@ -11,12 +11,12 @@ public class Aluno {
     private int notaProvaFinal;
     private int mediaFinal;
 
-    public Aluno(String nome, String matricula, int nota1, int nota2, int nota3, int mediaParcial, int notaProvaFinal) {
+    public Aluno(String nome, String matricula) {
         this.nome = nome;
         this.matricula = matricula;
-        this.nota1 = nota1;
-        this.nota2 = nota2;
-        this.nota3 = nota3;
+        this.nota1 = 0;
+        this.nota2 = 0;
+        this.nota3 = 0;
         this.mediaParcial = 0;
         this.notaProvaFinal = 0;
         this.mediaFinal = 0;
@@ -61,6 +61,16 @@ public class Aluno {
 
     public void setMediaFinal(int mediaFinal) {
         this.mediaFinal = mediaFinal;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override
