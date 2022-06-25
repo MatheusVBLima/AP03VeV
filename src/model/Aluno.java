@@ -4,22 +4,18 @@ public class Aluno {
 
     private String nome;
     private String matricula;
-    private int nota1;
-    private int nota2;
-    private int nota3;
-    private int mediaParcial;
-    private int notaProvaFinal;
-    private int mediaFinal;
+    private float nota1;
+    private float nota2;
+    private float nota3;
+    private float media;
 
-    public Aluno(String nome, String matricula, int nota1, int nota2, int nota3, int mediaParcial, int notaProvaFinal) {
-        this.nome = nome;
+    public Aluno(String matricula, String nome) {
         this.matricula = matricula;
-        this.nota1 = nota1;
-        this.nota2 = nota2;
-        this.nota3 = nota3;
-        this.mediaParcial = 0;
-        this.notaProvaFinal = 0;
-        this.mediaFinal = 0;
+        this.nome = nome;
+        this.nota1 = 0;
+        this.nota2 = 0;
+        this.nota3 = 0;
+        this.media = 0;
 
     }
 
@@ -31,36 +27,40 @@ public class Aluno {
         return matricula;
     }
 
-    public int getNota1() {
+    public float getNota1() {
         return nota1;
     }
 
-    public int getNota2() {
+    public void setNota1(float nota1) {
+        this.nota1 = nota1;
+    }
+
+    public float getNota2() {
         return nota2;
     }
 
-    public int getNota3() {
+    public void setNota2(float nota2) {
+        this.nota2 = nota2;
+    }
+
+    public float getNota3() {
         return nota3;
     }
-
-    public int getMediaParcial() {
-        return mediaParcial;
+    
+    public void setNota3(float nota3) {
+        this.nota3 = nota3;
     }
 
-    public int getNotaProvaFinal() {
-        return notaProvaFinal;
+    public float getMediaParcial() {
+        return (nota1 + nota2 + nota3) / 3;
     }
 
-    public int getMediaFinal() {
-        return mediaFinal;
+    public float getMedia() {
+        return media;
     }
 
-    public void setMediaParcial(int mediaParcial) {
-        this.mediaParcial = mediaParcial;
-    }
-
-    public void setMediaFinal(int mediaFinal) {
-        this.mediaFinal = mediaFinal;
+    public void setMedia(int media) {
+        this.media = media;
     }
 
     @Override
@@ -68,14 +68,13 @@ public class Aluno {
         if (this.mediaParcial >= 7) {
             return "Aluno: " + this.nome + " - Matricula: " + this.matricula + " - Nota 1: " + this.nota1
                     + " - Nota 2: " + this.nota2 + " - Nota 3: " + this.nota3 + " - Media Parcial: " + this.mediaParcial
-                    + " - Media Final: " + this.mediaFinal;
+                    + " - Aluno Aprovado!";
 
         } else {
             return "Aluno: " + this.nome + " - Matricula: " + this.matricula + " - Nota 1: " + this.nota1
                     + " - Nota 2: " + this.nota2 + " - Nota 3: " + this.nota3 + " - Media Parcial: " + this.mediaParcial
-                    + " - Nota da Prova Final " + this.notaProvaFinal + " - Media Final: " + this.mediaFinal;
+                    + " - Aluno Reprovado!";
         }
-
     }
 
 }
