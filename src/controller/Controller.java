@@ -1,19 +1,19 @@
-package AP03.src.controller;
-import AP03.src.model.Aluno;
-import java.util.ArrayList;
+package controller;
 import java.util.LinkedHashMap;
-import java.util.Map
 
-public class controller {
+import model.Aluno;
+
+public class Controller {
 
     private LinkedHashMap<String, Aluno> usuarios = new LinkedHashMap<String, Aluno>();
 
-    public void put(String matricula, String nome) {
-        if(maxAlunos){
-            System.out.println("Não é possível adicionar mais alunos");
+    public String put(String matricula, String nome) {
+        if(maxAlunos()){
+            return "N�o � poss�vel adicionar mais alunos";
         }else {
-            aluno = new Aluno(matricula, nome);
+            Aluno aluno = new Aluno(matricula, nome);
 		    usuarios.put(matricula, aluno); 
+		    return "Aluno cadastrado";
         }
 	}
 
@@ -42,27 +42,27 @@ public class controller {
             usuarios.get(matricula).setNota1(nota);
             return "Nota 1 alterada com sucesso!";
         }else {
-            return ("Nota inválida");
+            return ("Nota invalida");
         }
     }
 
     public String setNota2(String matricula, float nota) {
         if( notaValida(nota) ) {
-            usuarios.get(matricula).setNota1(nota);
+            usuarios.get(matricula).setNota2(nota);
             return "Nota 2 alterada com sucesso!";
         }else {
-            return ("Nota inválida");
+            return ("Nota invalida");
         }
     }
 
     public String setNota3(String matricula, float nota) {
         if( notaValida(nota) ) {
-            aluno = usuarios.get(matricula);
+            Aluno aluno = usuarios.get(matricula);
             aluno.setNota3(nota);
-            aluno.setMedia(aluno.getNota1() + aluno.getNota2() + aluno.getNota3());
+            aluno.setMedia((aluno.getNota1() + aluno.getNota2() + aluno.getNota3()) / 3);
             return "Nota 3 alterada com sucesso!";
         }else {
-            return ("Nota inválida");
+            return ("Nota invalida");
         }
     }
 

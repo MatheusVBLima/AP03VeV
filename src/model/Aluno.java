@@ -1,4 +1,4 @@
-package AP03.src.model;
+package model;
 
 public class Aluno {
 
@@ -59,20 +59,20 @@ public class Aluno {
         return media;
     }
 
-    public void setMedia(int media) {
-        this.media = media;
+    public void setMedia(float f) {
+        this.media = f;
     }
 
     @Override
     public String toString() {
-        if (this.mediaParcial >= 7) {
+        if (this.getMediaParcial() >= 7) {
             return "Aluno: " + this.nome + " - Matricula: " + this.matricula + " - Nota 1: " + this.nota1
-                    + " - Nota 2: " + this.nota2 + " - Nota 3: " + this.nota3 + " - Media Parcial: " + this.mediaParcial
+                    + " - Nota 2: " + this.nota2 + " - Nota 3: " + this.nota3 + " - Media Parcial: " + this.getMediaParcial()
                     + " - Aluno Aprovado!";
 
         } else {
             return "Aluno: " + this.nome + " - Matricula: " + this.matricula + " - Nota 1: " + this.nota1
-                    + " - Nota 2: " + this.nota2 + " - Nota 3: " + this.nota3 + " - Media Parcial: " + this.mediaParcial
+                    + " - Nota 2: " + this.nota2 + " - Nota 3: " + this.nota3 + " - Media Parcial: " + this.getMediaParcial()
                     + " - Aluno Reprovado!";
         }
     }
