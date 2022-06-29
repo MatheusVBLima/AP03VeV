@@ -33,20 +33,20 @@ public class Controller {
         usuarios.remove(matricula);
     }
 
-    public float getMediaParcial(String matricula) {
+    public double getMediaParcial(String matricula) {
         return usuarios.get(matricula).getMediaParcial();
     }
 
-    public String setNota1(String matricula, float nota) {
-        if( notaValida(nota) ) {
-            usuarios.get(matricula).setNota1(nota);
+    public String setNota1(String matricula, double d) {
+        if( notaValida(d) ) {
+            usuarios.get(matricula).setNota1(d);
             return "Nota 1 alterada com sucesso!";
         }else {
             return ("Nota invalida");
         }
     }
 
-    public String setNota2(String matricula, float nota) {
+    public String setNota2(String matricula, double nota) {
         if( notaValida(nota) ) {
             usuarios.get(matricula).setNota2(nota);
             return "Nota 2 alterada com sucesso!";
@@ -55,7 +55,7 @@ public class Controller {
         }
     }
 
-    public String setNota3(String matricula, float nota) {
+    public String setNota3(String matricula, double nota) {
         if( notaValida(nota) ) {
             Aluno aluno = usuarios.get(matricula);
             aluno.setNota3(nota);
@@ -66,24 +66,24 @@ public class Controller {
         }
     }
 
-    public float getNota1(String matricula) {
+    public double getNota1(String matricula) {
         return usuarios.get(matricula).getNota1();
     }
 
-    public float getNota2(String matricula) {
+    public double getNota2(String matricula) {
         return usuarios.get(matricula).getNota2();
     }
 
-    public float getNota3(String matricula) {
+    public double getNota3(String matricula) {
         return usuarios.get(matricula).getNota3();
     }
 
-    public float getMedia(String matricula) {
+    public double getMedia(String matricula) {
         return usuarios.get(matricula).getMedia();
     }
 
-    private boolean notaValida(float nota) {
-        return nota >= 0 && nota <= 10;
+    private boolean notaValida(double d) {
+        return d >= 0 && d <= 10;
     }
 
     private boolean maxAlunos() {

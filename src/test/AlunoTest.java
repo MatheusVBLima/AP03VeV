@@ -68,5 +68,23 @@ class AlunoTest {
         controller.put("5", "aluno5");
         assertEquals(controller.put("6", "aluno6"), "Não é possível adicionar mais alunos");
     }
+    
+    @Test
+    public void alunoAprovadoLimite() {
+        controller.put("1", "aluno1");
+        controller.setNota1("1", 7.1);
+        controller.setNota2("1", 7.1);
+        controller.setNota3("1", 7.1);
+        assertTrue(controller.getMedia("1") >= 7);
+    }
+    
+    @Test
+    public void alunoReprovadoLimite() {
+        controller.put("1", "aluno1");
+        controller.setNota1("1", 6.9);
+        controller.setNota2("1", 6.9);
+        controller.setNota3("1", 6.9);
+        assertFalse(controller.getMedia("1") >= 7);
+    }
 
 }
